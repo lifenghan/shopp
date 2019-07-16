@@ -35,16 +35,20 @@
                     本店价格：<b>￥{{$product->price}}</b><br />
                     消费积分：<span>28R</span>
                 </div>
-                @foreach($info as $value)
+
                 <div class="des_choice">
-                    <span class="fl">{{$value->name}}：</span>
+                    @foreach($info as $value)
+                    <span class="fl">{{$value->name}}:</span>
                     <ul>
-                        @foreach(explode(" ", $value->detail) as $val)
-                        <li>{{$val}}<div class="ch_img"></div></li>
+                        @foreach(explode(" ", $value->detail) as $key=>$val)
+                        <li @if($key == 0) class="checked" @endif>{{$val}}<div class="ch_img"></div></li>
+
                         @endforeach
                     </ul>
+                        <br>
+                    @endforeach
                 </div>
-                @endforeach
+
                 <script>
                     $(".des_choice").find("li").click(function () {
                         $(this).each(function () {
@@ -72,10 +76,33 @@
                         <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
                         <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />
                     </div>
-                    <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="/static/Home/images/j_car.png" /></a></span>
+                    <span class="fl"><a ><img src="/static/Home/images/j_car.png" /></a></span>
                 </div>
             </div>
-
+            <script>
+                var name = "";
+                var detail="";
+                var id = {{$product->id}}
+                $(".des_join").find("span").click(function () {
+                    $(".des_choice").find("span").each(function () {
+                        name += $(this).html();
+                    });
+                    $(".des_choice").find("li").each(function () {
+                        // console.log($(this).text());
+                        if(  $(this).attr('class') =='checked'){
+                            detail += $(this).text()+":";
+                        }
+                    });
+                    var stock =$(this).siblings("div").children("input").first().val();
+                    $.get("/shoppingcart/create",{product_id:id,name:name,detail:detail,number:stock},function (data) {
+                        if(data ==1){
+                            ShowDiv_1('MyDiv1','fade1')
+                        }else{
+                            ShowDiv_1('MyDiv2','fade2')
+                        }
+                    })
+                });
+            </script>
             <div class="s_brand">
                 <div class="s_brand_img"><img src="/static/Home/images/sbrand.jpg" width="188" height="132" /></div>
                 <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
@@ -350,12 +377,36 @@
                             <td width="40"><img src="/static/Home/images/suc.png" /></td>
                             <td>
                                 <span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
-                                购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
                             </td>
                         </tr>
                         <tr height="50" valign="bottom">
                             <td>&nbsp;</td>
-                            <td><a href="#" class="b_sure">去购物车结算</a><a href="#" class="b_buy">继续购物</a></td>
+                            <td><a href="#" class="b_sure">去购物车结算</a>
+                                <span onclick="CloseDiv_1('MyDiv1','fade1')"><a href="#" class="b_buy">继续购物</a></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!--End 弹出层-加入购物车 End-->
+
+        <!--Begin 弹出层-加入购物车 Begin-->
+        <div id="fade2" class="black_overlay"></div>
+        <div id="MyDiv2" class="white_content">
+            <div class="white_d">
+                <div class="notice_t">
+                    <span class="fr" style="margin-top:10px; cursor:pointer;" onclick="CloseDiv_1('MyDiv1','fade1')"><img src="/static/Home/images/close.gif" /></span>
+                </div>
+                <div class="notice_c">
+
+                    <table border="0" align="center" style="margin-top:;" cellspacing="0" cellpadding="0">
+                        <tr valign="top">
+                            <td width="40"><img src="/static/Home/images/suc.png" /></td>
+                            <td>
+                                <span style="color:#3e3e3e; font-size:18px; font-weight:bold;">添加到购物车失败</span><br />
+                            </td>
                         </tr>
                     </table>
 

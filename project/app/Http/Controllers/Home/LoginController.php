@@ -52,7 +52,8 @@ class LoginController extends Controller
             if(Hash::check($password,$info->password)){
                 // echo "ok";
                 // 将账号存储在session中
-                session(['username'=>$info->username]);
+               $data =  User::where("email","=",$email)->select("id","username","email","phone")->first();
+                session(['username'=>$data]);
                 return redirect("/home");
             }else{
                 return back()->with("error","密码有误");

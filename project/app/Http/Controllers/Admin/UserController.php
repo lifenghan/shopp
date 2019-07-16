@@ -37,7 +37,6 @@ class UserController extends Controller
         $offset=($page-1)*$rev;
         //执行sql语句
         $data=User::offset($offset)->limit($rev)->get();
-
         //判断当前请求是否是ajax请求
         if($request->ajax()){
             // echo $page;die;
@@ -97,6 +96,7 @@ class UserController extends Controller
     public function show($id)
     {
          //调用关联数据  会员信息
+
         $info=User::find($id)->info;
         // dd($info);
         //加载模板

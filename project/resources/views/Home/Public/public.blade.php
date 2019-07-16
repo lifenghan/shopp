@@ -123,7 +123,7 @@
                         <a href="/homelogin">请登录</a>
                         |<a href="/homeregister" style="color:#ff4e00;">免费注册</a>&nbsp;
                 @else
-                    {{session('username')}}
+                    {{session('username')->username}}
                 @endif
 
                 <!--退出-->
