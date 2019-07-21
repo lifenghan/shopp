@@ -62,14 +62,12 @@
             <!--End Banner End-->
             <div class="inews">
                 <div class="news_t">
-                    <span class="fr"><a href="#">更多 ></a></span>新闻资讯
+                    <span class="fr"><a href="/art">更多 ></a></span>新闻资讯
                 </div>
                 <ul>
-                    <li><span>[ 特惠 ]</span><a href="#">掬一轮明月 表无尽惦念</a></li>
-                    <li><span>[ 公告 ]</span><a href="#">好奇金装成长裤新品上市</a></li>
-                    <li><span>[ 特惠 ]</span><a href="#">大牌闪购 · 抢！</a></li>
-                    <li><span>[ 公告 ]</span><a href="#">发福利 买车就抢千元油卡</a></li>
-                    <li><span>[ 公告 ]</span><a href="#">家电低至五折</a></li>
+                    @foreach($data as $value)
+                    <li><span>[ 公告 ]</span><a href="/art/{{$value->id}}">{{$value->title}}</a></li>
+                    @endforeach
                 </ul>
                 <div class="charge_t">
                     话费充值<div class="ch_t_icon"></div>
@@ -263,7 +261,7 @@
         <!--End 限时特卖 End-->
 
         <div class="content mar_20">
-            <img src="/static/Home/images/mban_1.jpg" width="1200" height="110" />
+            <a href="/homeproduct/{{$poster->pid}}"><img src="{{$poster->img}}" width="1200" height="110" /></a>
         </div>
         <!--Begin 进口 生鲜 Begin-->
         @foreach($cates as $value)

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 //导入模型类
 use App\Models\Admin\User;
+use DB;
 use Hash;
 use Mail;
 class LoginController extends Controller
@@ -52,7 +53,9 @@ class LoginController extends Controller
             if(Hash::check($password,$info->password)){
                 // echo "ok";
                 // 将账号存储在session中
-                session(['username'=>$info->username]);
+                $data=DB::table("user")->select("id","username","email","phone","created_at")->where("email","=",$email)->first();
+                // dd($data);
+                session(['username'=>$data]);
                 return redirect("/home");
             }else{
                 return back()->with("error","密码有误");
@@ -60,6 +63,7 @@ class LoginController extends Controller
         }else{
             return back()->with("error","邮箱有误");
         }
+
 
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Models\Friends;
+use App\Services\OSS;
 class AdminfriendsController extends Controller
 {
     /**
@@ -76,6 +77,21 @@ class AdminfriendsController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->except('_method','_token');
+        if($request->hasFile("img")){
+            $file=$request->file("img");
+            $name=time();
+            // 获取图片后缀名
+            $ext=$request->file("img")->getClientOriginalExtension();
+           $newfile=$name.".".$ext;
+           $filepath=$file->getRealPath();
+           // oss上传
+           // $newfile上传到阿里云oss平台下的文件名字
+           // $filepath 临时资源
+           OSS::upload($newfile,$filepath);
+
+           // dd('https://lhyphp216.oss-cn-beijing.aliyuncs.com/'.$name.".".$ext);
+            $data['img']='https://lhyphp216.oss-cn-beijing.aliyuncs.com/'.$name.".".$ext;
+        }
         if(DB::table('friends')->where('id','=',$id)->update($data)){
             return redirect("/adminfriends")->with("success","修改成功");
         }else{

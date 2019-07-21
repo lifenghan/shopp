@@ -23,7 +23,7 @@ class UserController extends Controller
         //获取数据总条数
         $tot=User::count();
         //每页显示的数据数
-        $rev=4;
+        $rev=12;
         //获取最大页数
         $maxpage=ceil($tot/$rev);
         //获取ajax传递的参数

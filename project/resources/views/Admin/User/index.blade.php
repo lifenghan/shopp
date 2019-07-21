@@ -73,7 +73,7 @@
                             </font></font></td>
                     <td>
                         <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                <form action="adminuser/id" method="post">
+                                <form action="/adminuser/{{$row->id}}" method="post">
                                     {{method_field("DELETE")}}
                                     {{csrf_field()}}
                                 <button type="submit" class="badge badge-info">

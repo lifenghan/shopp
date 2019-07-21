@@ -30,10 +30,13 @@
                                 描述
                             </font></font></th>
                     <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                操作
+                                logo
                             </font></font></th>
                     <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                                 状态
+                            </font></font></th>
+                    <th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                操作
                             </font></font></th>
                 </tr>
                 </thead>
@@ -51,6 +54,9 @@
                             </font></font></td>
                     <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                                 {{$value->miaoshu}}
+                            </font></font></td>
+                    <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                <img src="{{$value->img}}" alt="???">
                             </font></font></td>
                     <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                         @if($value->status==0)

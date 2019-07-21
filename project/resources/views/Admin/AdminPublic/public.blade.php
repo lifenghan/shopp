@@ -48,7 +48,7 @@
                             <span class="availability-status online"></span>
                         </div>
                         <div class="nav-profile-text">
-                            <p class="mb-1 text-black">{{session('admin')->name}}</p>
+                            <p class="mb-1 text-black">{{session('adminname')}}</p>
                         </div>
                     </a>
                     <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -57,7 +57,7 @@
                             活动日志
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/adminlogin">
                             <i class="mdi mdi-logout mr-2 text-primary"></i>
                             退出
                         </a>
@@ -196,7 +196,7 @@
                             <span class="login-status online"></span> <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
-                            <span class="font-weight-bold mb-2">{{session('admin')->name}}</span>
+                            <span class="font-weight-bold mb-2">{{session('adminname')}}</span>
                             <span class="text-secondary text-small">Project Manager</span>
                         </div>
                         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -293,8 +293,8 @@
                     </a>
                     <div class="collapse" id="ui-6">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">公告显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">公告添加</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminarticle">公告显示</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminarticle/create">公告添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -306,8 +306,8 @@
                     </a>
                     <div class="collapse" id="ui-7">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">广告显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">广告添加</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminposter">广告显示</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminposter/create">广告添加</a></li>
                         </ul>
                     </div>
                 </li>

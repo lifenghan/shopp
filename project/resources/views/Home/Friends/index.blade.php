@@ -27,7 +27,7 @@
     <div class="mem_tit">
         友情链接申请
     </div>
-    <form action="/friends" method="post">
+    <form action="/friends" method="post" enctype="multipart/form-data">
         <table border="0" class="mem_tab" style="width:930px; margin-bottom:30px;" cellspacing="0" cellpadding="0">
           <tr>                                                         
             <td width="150" class="tx_l">链接名字</td>
@@ -36,6 +36,10 @@
           <tr>
             <td class="tx_l">链接地址</td>
             <td><input type="text" placeholder="网站地址" class="tx_ipt" name="href" reminder="请输入正确的链接地址"/><span></span></td>
+          </tr>
+          <tr>
+            <td class="tx_l">图片</td>
+            <td><input type="file" name="img" placeholder="图片"><span></span></td>
           </tr>
           <tr>
             <td class="tx_l">链接备注</td>

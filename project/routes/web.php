@@ -59,6 +59,10 @@ Route:: group(["middleware"=>"login"],function (){
     Route::get("/bannernotop","Admin\BannerController@notop");
     // 友情链接
     Route::resource("/adminfriends","Admin\AdminfriendsController");
+    // 后台公告
+    Route::resource("/adminarticle","Admin\ArticleController");
+    // 广告
+    Route::resource("/adminposter","Admin\PosterController");
 });
 
 
@@ -98,4 +102,15 @@ Route::resource("/homecates","Home\CatesController");
 Route::resource("/homeproduct","Home\ProductController");
 // 友情链接
 Route::resource("/friends","Home\FriendsController");
-
+// 前台公告
+Route::resource("/art","Home\ArticleController");
+//个人中心->用户信息
+Route::resource("/personal","Home\PersonalController");
+//个人中心收货地址
+Route::resource("/personaladdress","Home\PersonalAddressController");
+//获取个人中心收货地址的城市联动
+Route::any("/address","Home\AddressController@address");
+//ajax设置默认地址
+Route::get("/change","Home\AddressController@change");
+//个人中心订单列表
+Route::resource("/personalorder","Home\PersonalOrderController");

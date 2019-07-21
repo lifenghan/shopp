@@ -120,15 +120,16 @@
             <span class="fl">你好&nbsp;<a href="Login.html">
                 <!--判断无session就显示登录,有就显示用户名-->
             @if(empty(session('username')))
-                        <a href="/homelogin">请登录</a>
-                        |<a href="/homeregister" style="color:#ff4e00;">免费注册</a>&nbsp;
+                        <a href="/homelogin">请登录</a>&nbsp;&nbsp;&nbsp;
+                        |<a href="/homeregister" style="color:#ff4e00;">免费注册</a>
                 @else
-                    {{session('username')}}
-                @endif
-
+                    <a href="/personal">{{session('username')->username}}</a>
+            
                 <!--退出-->
-
-        &nbsp;<a href="/loginout">退出</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+            &nbsp;&nbsp;
+        <a href="/loginout">退出</a>
+        @endif
+        &nbsp;|<a href="#">我的订单</a>&nbsp;|</span>
             <span class="ss">
                 <div class="ss_list">
                     <a href="#">收藏夹</a>
@@ -268,6 +269,20 @@
                 </tr>
             </table>
         </div>
+    </div>
+    <div class="b_btm_bg b_btm_c">
+       
+        <div class="b_btm">
+             @foreach($friend as $val)<a href="http://{{$val->href}}">
+            <table  style="width:210px; height:62px; float:left; margin-left:75px; margin-top:30px;" >
+                <tr>
+                    <td width="72"><img src="{{$val->img}}" height="62" /></td>
+                    <td> <h2>{{$val->name}}</h2>{{$val->miaoshu}}</td>
+                </tr>
+            </table></a>
+            @endforeach
+        </div>
+        
     </div>
     <div class="b_nav">
         <dl>
