@@ -28,13 +28,13 @@
                 <tr class="table-info">
                    
                     <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                {{$info->id}}
+                                {{$info->id or ""}}
                             </font></font></td>
                     <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                {{$info->hobby}}
+                                {{$info->hobby or ""}}
                             </font></font></td>
                     <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                                {{$info->sex}}
+                                {{$info->sex or ""}}
                             </font></font></td>  
                         </font>
                 </tr>

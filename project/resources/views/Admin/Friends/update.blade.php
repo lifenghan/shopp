@@ -3,7 +3,7 @@
 @section("main")
     <div class="card-body">
       <h4 class="card-title">友情链接修改</h4>
-      <form class="forms-sample" action="/adminfriends/{{$data->id}}" method="post">
+      <form class="forms-sample" action="/adminfriends/{{$data->id}}" method="post" enctype="multipart/form-data">
         <div class="form-group row">
           <label for="exampleInputUsername2" class="col-sm-3 col-form-label">名字</label>
           <div class="col-sm-9">
@@ -21,6 +21,10 @@
           <div class="col-sm-9">
             <input type="text" class="form-control" id="exampleInputMobile" name="href" value="{{$data->href}}">
           </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">logo</font></font></label>
+            <input type="file" name="img" class="form-control" id="exampleInputPassword4" placeholder="图片" value="{{$data->img}}">
         </div>
         <!-- <input type="radio" name="radio" value="0" >关闭<br>
         <input type="radio" name="radio" value="1" >开启<br> -->

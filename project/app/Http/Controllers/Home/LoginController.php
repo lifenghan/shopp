@@ -52,7 +52,7 @@ class LoginController extends Controller
             if(Hash::check($password,$info->password)){
                 // echo "ok";
                 // 将账号存储在session中
-               $data =  User::where("email","=",$email)->select("id","username","email","phone")->first();
+               $data =  User::where("email","=",$email)->select("id","username","email","phone","created_at")->first();
                 session(['username'=>$data]);
                 return redirect("/home");
             }else{

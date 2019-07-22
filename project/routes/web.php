@@ -45,6 +45,10 @@ Route:: group(["middleware"=>"login"],function (){
     Route::post("/deleteproductinfo/{id}","Admin\ProductController@deleteinfo");
     //商品参考图片
     Route::resource("/adminimgs","Admin\ImageController");
+    //订单管理
+    Route::resource("/adminorder","Admin\OrderController");
+    //订单发货d
+    Route::get("/deliver","Admin\OrderController@deliver");
     //轮播图
     Route::resource("/adminbanner","Admin\BannerController");
     //添加轮播图
@@ -59,6 +63,12 @@ Route:: group(["middleware"=>"login"],function (){
     Route::get("/bannernotop","Admin\BannerController@notop");
     // 友情链接
     Route::resource("/adminfriends","Admin\AdminfriendsController");
+    // 后台公告
+    Route::resource("/adminarticle","Admin\ArticleController");
+    // 广告
+    Route::resource("/adminposter","Admin\PosterController");
+    //后台商品评价模板
+    Route::resource("/admincomment","Admin\AdminCommentController");
 });
 
 //前台登录
@@ -85,11 +95,12 @@ Route::get("/checkcode","Home\RegisterController@checkcode");
 Route::get("/code","Home\RegisterController@code");
 //验证校验码
 Route::get("/checkcode1","Home\RegisterController@checkcode1");
+//前台模板
+Route::resource("/home","Home\HomeController");
 Route::group(["middleware"=>"homelogin"],function (){
     //前台退出
     Route::resource("/loginout","Home\LoginController");
-//前台模板
-    Route::resource("/home","Home\HomeController");
+
 //前台商品类型选择
     Route::resource("/homecate","Home\CateController");
 //前台类型商品模板
@@ -98,8 +109,38 @@ Route::group(["middleware"=>"homelogin"],function (){
     Route::resource("/homeproduct","Home\ProductController");
     //前台购物车
     Route::resource("/shoppingcart","Home\ShoppingCartController");
+    //前台订单
+    Route::resource("/order","Home\OrderController");
+    //订单页面
+    Route::get("/order/info/{data}/{detail}","Home\OrderController@info");
+    //订单地址选择
+    Route::get("/orderaddress","Home\OrderController@address");
+    //提交地点
+    Route::post("/addorder","Home\OrderController@add");
+    //调用支付宝
+    Route::get("/pays","Home\OrderController@zhifu");
+    //支付宝支付成功跳转页面
+    Route::get("/yes","Home\OrderController@yes");
+    // 前台公告
+    Route::resource("/art","Home\ArticleController");
     // 友情链接
     Route::resource("/friends","Home\FriendsController");
+    //个人中心->用户信息
+    Route::resource("/personal","Home\PersonalController");
+//个人中心收货地址
+    Route::resource("/personaladdress","Home\PersonalAddressController");
+//获取个人中心收货地址的城市联动
+    Route::any("/address","Home\AddressController@address");
+//ajax设置默认地址
+    Route::get("/change","Home\AddressController@change");
+//个人中心订单列表
+    Route::resource("/personalorder","Home\PersonalOrderController");
+//个人中心订单详情
+    Route::resource("/orderinfo","Home\OrderInfoController");
+    //个人中心我的评价
+    Route::resource("/pj","Home\PingJiaController");
+//前台商品评价模板
+    Route::resource("/comment","Home\CommentController");
 });
 
 

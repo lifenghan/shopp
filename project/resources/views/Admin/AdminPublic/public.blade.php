@@ -57,7 +57,7 @@
                             活动日志
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/adminlogin">
                             <i class="mdi mdi-logout mr-2 text-primary"></i>
                             退出
                         </a>
@@ -210,7 +210,7 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-11">
-                        <ul class="nav flex-column sub-menu">
+                        <ul class="nav flex-column ">
                             <li class="nav-item"> <a class="nav-link" href="/adminusers/create">管理员添加</a></li>
                             <li class="nav-item"> <a class="nav-link" href="/adminusers">管理员列表</a></li>
                             <li class="nav-item"> <a class="nav-link" href="/adminroles/create">角色添加</a></li>
@@ -227,8 +227,7 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-1">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/adminuser/create">用户添加</a></li>
+                        <ul class="nav flex-column">
                             <li class="nav-item"> <a class="nav-link" href="/adminuser">用户列表</a></li>
                         </ul>
                     </div>
@@ -243,19 +242,6 @@
                         <ul class="nav flex-column ">
                             <li class="nav-item"> <a class="nav-link" href="/admincates">分类显示</a></li>
                             <li class="nav-item"> <a class="nav-link" href="/admincates/create">分类添加</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-3" aria-expanded="false" aria-controls="ui-basic">
-                        <span class="menu-title">文章管理</span>
-                        <i class="menu-arrow"></i>
-                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-                    </a>
-                    <div class="collapse" id="ui-3">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">文章显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">文章添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -279,9 +265,8 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-5">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">订单显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">订单添加</a></li>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"> <a class="nav-link" href="/adminorder">订单显示</a></li>
                         </ul>
                     </div>
                 </li>
@@ -292,9 +277,9 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-6">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">公告显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">公告添加</a></li>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"> <a class="nav-link" href="/adminarticle">公告显示</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminarticle/create">公告添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -305,9 +290,9 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-7">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">广告显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">广告添加</a></li>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"> <a class="nav-link" href="/adminposter">广告显示</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="/adminposter/create">广告添加</a></li>
                         </ul>
                     </div>
                 </li>
@@ -318,7 +303,7 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-8">
-                        <ul class="nav flex-column sub-menu">
+                        <ul class="nav flex-column">
                             <li class="nav-item"> <a class="nav-link" href="/adminfriends">链接显示</a></li>
                         </ul>
                     </div>
@@ -330,7 +315,7 @@
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-9">
-                        <ul class="nav flex-column sub-menu">
+                        <ul class="nav flex-column">
                             <li class="nav-item"> <a class="nav-link" href="/adminbanner">轮播图</a></li>
                             <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">添加轮播图</a></li>
                         </ul>
@@ -338,14 +323,13 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-10" aria-expanded="false" aria-controls="ui-basic">
-                        <span class="menu-title">站内信息管理</span>
+                        <span class="menu-title">评价管理</span>
                         <i class="menu-arrow"></i>
                         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                     </a>
                     <div class="collapse" id="ui-10">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/buttons.html">站内显示</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="/static/Admin/pages/ui-features/typography.html">站内添加</a></li>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"> <a class="nav-link" href="/admincomment">评价显示</a></li>
                         </ul>
                     </div>
                 </li>

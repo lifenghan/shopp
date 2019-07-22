@@ -52,7 +52,11 @@ class Homecontroller extends Controller
                 }
             }
         }
-        return view("Home.Home.index",['cates'=>$cates,'i'=>1,'a'=>1,'product'=>$product,"image"=>$image,"images"=>$images]);
+        // 公告
+        $data = DB::table('articles')->get();
+        // 广告
+        $poster = DB::table('poster')->first();
+        return view("Home.Home.index",['cates'=>$cates,'i'=>1,'a'=>1,'product'=>$product,"image"=>$image,"images"=>$images,"data"=>$data,'poster'=>$poster]);
     }
 
     /**

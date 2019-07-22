@@ -60,7 +60,10 @@ class ProductController extends Controller
         //获取商品详细信息
         $info = DB::table("product_property")->where("product_id","=",$product->id)->where("delete_time","=",null)->get();
 //        var_dump($images);
-        return view("/Home.Product.index",['cate'=>$cate,'cates'=>$cates,'catess'=>$catess,'product'=>$product,'images'=>$images,'info'=>$info,'i'=>1]);
+        //获取评论
+        //多表联合查询
+        $com=DB::table("comment")->join('user',"comment.user_id","=","user.id")->where("product_id","=",$id)->select("user.username as uname","comment.content","comment.time")->get();
+        return view("/Home.Product.index",['cate'=>$cate,'cates'=>$cates,'catess'=>$catess,'product'=>$product,'images'=>$images,'info'=>$info,'i'=>1,'com'=>$com]);
     }
 
     /**

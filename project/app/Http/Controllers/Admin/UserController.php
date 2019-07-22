@@ -9,7 +9,7 @@ use Hash;
 //导入模型类
 use App\Models\Admin\User;
 //导入校验请求类
-use App\Http\Requests\UserInsertRequest;
+use App\Http\Requests\UsersInsertRequest;
 use DB;
 class UserController extends Controller
 {
@@ -19,7 +19,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
+    {
         //获取数据总条数
         $tot=User::count();
         //每页显示的数据数
@@ -43,7 +43,7 @@ class UserController extends Controller
             return view("Admin.User.ajaxpage",['data'=>$data]);
         }
         // echo $maxpage;
-        for($i=1;$i<$maxpage;$i++){
+        for($i=1;$i<=$maxpage;$i++){
             $pp[$i]=$i;
         }
         // dd($pp);
@@ -68,7 +68,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserInsertRequest $request)
+    public function store(UsersInsertRequest $request)
     {
         //处理添加的方法
         // echo "1";
@@ -95,12 +95,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-         //调用关联数据  会员信息
+        //调用关联数据  会员信息
 
         $info=User::find($id)->info;
         // dd($info);
         //加载模板
-        return view("Admin.User.info",['info'=>$info]);        
+        return view("Admin.User.info",['info'=>$info]);
     }
 
     //获取会员的收货地址
@@ -118,7 +118,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-         //获取需要修改的数据
+        //获取需要修改的数据
         $data=User::find($id);
         //dd($data);
         //加载模板
@@ -134,7 +134,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-         //获取修改的数据
+        //获取修改的数据
         // dd($request->all());
         $data=$request->except(['_token','_method']);
         //执行修改

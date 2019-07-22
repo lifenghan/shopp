@@ -273,54 +273,17 @@
                     </table>
 
 
-
                     <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
-                        <tr valign="top">
-                            <td width="160"><img src="/static/Home/images/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                            <td width="180">
-                                颜色分类：<font color="#999999">粉色</font> <br />
-                                型号：<font color="#999999">50ml</font>
-                            </td>
-                            <td>
-                                产品很好，香味很喜欢，必须给赞。 <br />
-                                <font color="#999999">2015-09-24</font>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <td width="160"><img src="/static/Home/images/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                            <td width="180">
-                                颜色分类：<font color="#999999">粉色</font> <br />
-                                型号：<font color="#999999">50ml</font>
-                            </td>
-                            <td>
-                                送朋友，她很喜欢，大爱。 <br />
-                                <font color="#999999">2015-09-24</font>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <td width="160"><img src="/static/Home/images/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                            <td width="180">
-                                颜色分类：<font color="#999999">粉色</font> <br />
-                                型号：<font color="#999999">50ml</font>
-                            </td>
-                            <td>
-                                大家都说不错<br />
-                                <font color="#999999">2015-09-24</font>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <td width="160"><img src="/static/Home/images/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                            <td width="180">
-                                颜色分类：<font color="#999999">粉色</font> <br />
-                                型号：<font color="#999999">50ml</font>
-                            </td>
-                            <td>
-                                下次还会来买，推荐。<br />
-                                <font color="#999999">2015-09-24</font>
-                            </td>
-                        </tr>
+                        @foreach ($com as $row)
+                            <tr valign="top">
+                                <td width="160"><img src="/static/Home/images/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;{{$row->uname}}</td>
+                                <td>
+                                    {{$row->content}}<br />
+                                    <font color="#999999">{{$row->time}}</font>
+                                </td>
+                            </tr>
+                        @endforeach
                     </table>
-
 
 
                     <div class="pages">
@@ -381,7 +344,7 @@
                         </tr>
                         <tr height="50" valign="bottom">
                             <td>&nbsp;</td>
-                            <td><a href="#" class="b_sure">去购物车结算</a>
+                            <td><a href="/shoppingcart" class="b_sure">去购物车结算</a>
                                 <span onclick="CloseDiv_1('MyDiv1','fade1')"><a href="#" class="b_buy">继续购物</a></span>
                             </td>
                         </tr>

@@ -15,7 +15,16 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        //
+       $user_id = session("username")['id'];
+      $data = DB::table("shopping_cart")->join("product","shopping_cart.product_id","=","product.id")->select("shopping_cart.name as sname","shopping_cart.detail","shopping_cart.id as sid","shopping_cart.number","product.name as pname","product.price","product.stock","product.main_img","product.id as pid")->where("user_id","=",$user_id)->get();
+      $arr = array();
+      $arr1 = array();
+      foreach($data as $value){
+         $sname = explode(":",$value->sname);
+         $detail = explode(":",$value->detail);
+        $value->attr = array_combine($sname,$detail);
+      }
+        return view("Home.Cart.index",['data'=>$data]);
     }
 
     /**
@@ -26,8 +35,20 @@ class ShoppingCartController extends Controller
     public function create(Request $request)
     {
         $data = $request->all();
+        $data['name'] = rtrim($data['name'],":");
+        $data['detail'] = rtrim($data['detail'],":");
         $data['user_id'] = session("username")->id;
-        $result = DB::table("shopping_cart")->insert($data);
+        //判断是否已添加购物车
+        $product_id = $request->input("product_id");
+        $number = $request->input("number");
+        $car = DB::table("shopping_cart")->where("user_id","=",session("username")->id)->where("product_id","=",$product_id)->first();
+        if($car){
+            $num = $car->number + $number;
+           $result= DB::table("shopping_cart")->where("user_id","=",session("username")->id)->where("product_id","=",$product_id)->update(["number"=>$num]);
+        }else{
+            $result = DB::table("shopping_cart")->insert($data);
+        }
+
         if($result){
             echo 1;
         }else{
@@ -54,7 +75,12 @@ class ShoppingCartController extends Controller
      */
     public function show($id)
     {
-        //
+       $result = DB::table("shopping_cart")->where("id","=",$id)->delete();
+       if($result){
+           echo 1;
+       }else{
+           echo 2;
+       }
     }
 
     /**
