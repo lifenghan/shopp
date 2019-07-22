@@ -1,0 +1,1 @@
+<a href="http://shopp.com/reset?id={{$id}}&token={{$token}}">密码重置</a>
